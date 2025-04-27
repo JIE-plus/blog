@@ -5,6 +5,7 @@ import mathjax3 from "markdown-it-mathjax3";
 
 async function config() {
   return {
+    base: "/blog/",
     lang: "en-US",
     title: "Clark Cui",
     description: "Home of Clark Cui",
@@ -49,7 +50,7 @@ async function config() {
         provider: "local",
       },
       docsDir: "/",
-      base: "/blog/",
+      
       // docsBranch: "master",
       posts: await getPosts(),
       pageSize: 5,
