@@ -1,10 +1,6 @@
 <template>
   <footer>
-    Powered by
-    <a href="https://github.com/clark-cui/" target="_blank" title="作者"
-      >clark-cui</a
-    >
-    | Copyright © 2019-{{ date }} | MIT License
+    
   </footer>
 </template>
 <script lang="ts" setup>
