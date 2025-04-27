@@ -6,8 +6,9 @@ import mathjax3 from "markdown-it-mathjax3";
 async function config() {
   return {
     lang: "en-US",
-    title: "Clark Cui",
-    description: "Home of Clark Cui",
+    title: "ming j",
+    base: "/blog/",
+    description: "Home of ming j",
     head: [
       [
         "link",
@@ -21,7 +22,7 @@ async function config() {
         "meta",
         {
           name: "author",
-          content: "Clark Cui",
+          content: "ming j",
         },
       ],
       [
@@ -35,7 +36,7 @@ async function config() {
         "meta",
         {
           property: "og:description",
-          content: "Home of Clark Cui",
+          content: "Home of ming j",
         },
       ],
     ],
@@ -48,11 +49,18 @@ async function config() {
       search: {
         provider: "local",
       },
-      docsDir: "/blog/",
+      docsDir: "/",
       // docsBranch: "master",
       posts: await getPosts(),
       pageSize: 5,
       postLength: await getPostLength(),
+      srcExclude:  [
+				"**/trash/**/*.md", // 排除所有 trash 目录
+				"**/draft/**/*.md", // 递归排除子目录
+				"**/private-notes/*.md", // 排除特定文件
+				"README.md"
+			],
+		
       nav: [
         {
           text: "🏡Blogs",
