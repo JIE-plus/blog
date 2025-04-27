@@ -44,7 +44,7 @@ async function config() {
     lastUpdated: false,
     themeConfig: {
       // repo: "clark-cui/homeSite",
-      logo: "/blog/horse.svg",
+      logo: "/horse.svg",
       avator: "/blog/avator.png",
       search: {
         provider: "local",
