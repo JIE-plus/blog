@@ -8,7 +8,7 @@
       <div>
         <button @click="back">cd ··</button>
       </div>
-      <Comments />
+      <!-- <Comments /> -->
     </template>
     <!-- Home slot-->
     <template #home-hero-before><HomeHero /> </template>
