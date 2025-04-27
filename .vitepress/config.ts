@@ -64,21 +64,21 @@ async function config() {
 		
       nav: [
         {
-          text: "🏡Blogs",
+          text: "🏡首页",
           link: "/",
         },
         {
-          text: "🔖Tags",
+          text: "🔖标签",
           link: "/tags",
         },
         {
-          text: "📃Archives",
+          text: "📃归档",
           link: "/archives",
-        },
-        {
-          text: "🔥RSS",
-          link: "https://clark-cui.top/feed.xml",
-        },
+        }
+        // {
+        //   text: "🔥RSS",
+        //   link: "https://clark-cui.top/feed.xml",
+        // },
       ],
       socialLinks: [
         { icon: "github", link: "https://github.com/clark-cui" },
