@@ -8,7 +8,6 @@ async function config() {
     base: "/blog/",
     lang: "en-US",
     title: "ming j",
-    base: "/blog/",
     description: "Home of ming j",
     head: [
       [
