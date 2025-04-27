@@ -5,6 +5,7 @@ import mathjax3 from "markdown-it-mathjax3";
 
 async function config() {
   return {
+    base: "/blog/",
     lang: "en-US",
     title: "ming j",
     base: "/blog/",
@@ -50,6 +51,7 @@ async function config() {
         provider: "local",
       },
       docsDir: "/",
+      
       // docsBranch: "master",
       posts: await getPosts(),
       pageSize: 5,
