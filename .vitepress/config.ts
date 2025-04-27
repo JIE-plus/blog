@@ -7,8 +7,8 @@ async function config() {
   return {
     base: "/blog/",
     lang: "en-US",
-    title: "ming j",
-    description: "Home of ming j",
+    title: "J",
+    description: "Home of J",
     head: [
       [
         "link",
@@ -22,7 +22,7 @@ async function config() {
         "meta",
         {
           name: "author",
-          content: "ming j",
+          content: "J",
         },
       ],
       [
@@ -36,7 +36,7 @@ async function config() {
         "meta",
         {
           property: "og:description",
-          content: "Home of ming j",
+          content: "Home of J",
         },
       ],
     ],
