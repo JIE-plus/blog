@@ -48,7 +48,8 @@ async function config() {
       search: {
         provider: "local",
       },
-      docsDir: "/blog/",
+      docsDir: "/",
+      base: "/blog/",
       // docsBranch: "master",
       posts: await getPosts(),
       pageSize: 5,
