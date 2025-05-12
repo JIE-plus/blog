@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://clark-cui.top/</id>
     <title>J</title>
-    <updated>2025-05-07T01:58:24.874Z</updated>
+    <updated>2025-05-12T03:28:10.638Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>J</name>
@@ -16,11 +16,36 @@
     <icon>https://clark-cui.top/horse.svg</icon>
     <rights>MIT License</rights>
     <entry>
-        <title type="html"><![CDATA[无]]></title>
+        <title type="html"><![CDATA[冒泡排序]]></title>
         <id>https://clark-cui.top/posts/随便说点啥.html</id>
         <link href="https://clark-cui.top/posts/随便说点啥.html"/>
-        <updated>2022-01-10T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[嘻嘻]]></summary>
+        <updated>2025-05-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[冒泡排序]]></summary>
+        <content type="html"><![CDATA[<pre><code class="language-java">@Test
+    public void test_01() {
+        int[] arr = new int[]{23,32,1};
+        for (int i = 0; i &lt; arr.length - 1; i++) {
+            boolean isSort = false;
+            for (int j = 0; j &lt; arr.length - 1 - i; j++) {
+                if (arr[j] &gt; arr[j+1]) {
+                    int temp = arr[j+1];
+                    arr[j+1] = arr[j];
+                    arr[j] = temp;
+                    isSort = true;
+                }
+            }
+            if (!isSort) {
+                break;
+            }
+        }
+        for (int a : arr) {
+            System.out.println(&quot;a = &quot; + a);
+        }
+    }
+
+
+</code></pre>
+]]></content>
         <author>
             <name>J</name>
             <email>rongchuancui@gmail.com</email>
