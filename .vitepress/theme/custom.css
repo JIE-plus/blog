@@ -44,3 +44,11 @@
 .VPDocOutlineDropdown {
   display: none !important;
 }
+
+.VPSidebar {
+  background-color: var(--vp-c-bg) !important;
+}
+.curtain {
+  background-color: var(--vp-c-bg) !important;
+
+}
