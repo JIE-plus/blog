@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://clark-cui.top/</id>
     <title>J</title>
-    <updated>2025-05-12T03:28:10.638Z</updated>
+    <updated>2025-05-17T03:20:30.914Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>J</name>
@@ -39,7 +39,7 @@
             }
         }
         for (int a : arr) {
-            System.out.println(&quot;a = &quot; + a);
+            System.out.println(&quot;a =  &quot; + a);
         }
     }
 
