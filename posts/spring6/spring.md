@@ -295,7 +295,7 @@ public void testUserDao() {
 org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'com.joker.spring6.iocxml.bean.UserDao' available: expected single matching bean but found 2: userDaoImpl,personDaoImpl
 ```
 
-### 结论**
+### 结论
 
 - 根据类型来获取bean时，在满足bean唯一性的前提下，其实只是看：『对象 **instanceof** 指定的类型』的返回结果，只要返回的是true就可以认定为和类型匹配，能够获取到。
 - java中，instanceof运算符用于判断前面的对象是否是后面的类，或其子类、实现类的实例。如果是返回true，否则返回false。也就是说：用instanceof关键字做判断时， instanceof 操作符的左右操作必须有继承或实现关系
