@@ -10,29 +10,19 @@ permissions:
   id-token: write
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v4.2.2
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v4
 
-      - name: setup node
-        uses: actions/setup-node@v3.9.1
-        with:
-          node-version: 18
+            -   uses: oven-sh/setup-bun@v2
+            -   run: bun install
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4.1.0
-        with:
-          version: 10.6.5
+            -   name: Build
+                run: bun run build
 
-      - name: build
-        run: |
-          pnpm install
-          pnpm build
-
-      - name: deploy
-        uses: peaceiris/actions-gh-pages@v4.0.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./.vitepress/dist
+            -   name: Deploy
+                uses: peaceiris/actions-gh-pages@v4
+                with:
+                    github_token: ${{ secrets.GITHUB_TOKEN }}
+                    publish_dir: .vitepress/dist
