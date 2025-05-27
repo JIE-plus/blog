@@ -24,11 +24,11 @@ export default defineConfig({
             categoryId: 'DIC_kwDOFshSIs4CpZga'
         },
         nav: [
-            { text: '首页', link: '/blog/' },
-            { text: '分类', link: '/pages/blog/category' },
-            { text: '归档', link: '/pages/blog/archives' },
-            { text: '标签', link: '/pages/blog/tags' },
-            { text: '关于', link: '/pages/blog/about' }
+            { text: '首页', link: '/' },
+            { text: '分类', link: '/pages/category' },
+            { text: '归档', link: '/pages/archives' },
+            { text: '标签', link: '/pages/tags' },
+            { text: '关于', link: '/pages/about' }
             // { text: 'Airene', link: 'http://airene.net' }  -- External link test
         ],
         search: {
