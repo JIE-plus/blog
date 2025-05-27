@@ -192,4 +192,10 @@ h3 {
     border-radius: 2px;
     color: var(--vp-c-text-1);
 }
+.VPSidebar {
+    padding: 3% 10px;
+    width: 20%;
+    text-align: center;
+    background-color: #1B1B1F;
+}
 
