@@ -7,14 +7,14 @@ const pageSize = 10
 const isProd = process.env.NODE_ENV === 'production'
 
 export default defineConfig({
-    title: 'Vitepress blog',
+    title: 'jie-plus blog',
     base: '/blog/',
     cacheDir: './node_modules/vitepress_cache',
     description: 'vitepress,blog,blog-theme',
     ignoreDeadLinks: true,
     themeConfig: {
         posts: await getPosts(pageSize),
-        website: 'https://github.com/airene/vitepress-blog-pure', //copyright link
+        // website: 'https://github.com/airene/vitepress-blog-pure', //copyright link
         // 评论的仓库地址 https://giscus.app/ 请按照这个官方初始化后覆盖
         comment: {
             repo: 'airene/vitepress-blog-pure',
@@ -22,11 +22,11 @@ export default defineConfig({
             categoryId: 'DIC_kwDOFshSIs4CpZga'
         },
         nav: [
-            { text: 'Home', link: '/blog/' },
-            { text: 'Category', link: '/pages/blog/category' },
-            { text: 'Archives', link: '/pages/blog/archives' },
-            { text: 'Tags', link: '/pages/blog/tags' },
-            { text: 'About', link: '/pages/blog/about' }
+            { text: '首页', link: '/blog/' },
+            { text: '分类', link: '/pages/blog/category' },
+            { text: '归档', link: '/pages/blog/archives' },
+            { text: '标签', link: '/pages/blog/tags' },
+            { text: '关于', link: '/pages/blog/about' }
             // { text: 'Airene', link: 'http://airene.net' }  -- External link test
         ],
         search: {
