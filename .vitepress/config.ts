@@ -8,7 +8,7 @@ const isProd = process.env.NODE_ENV === 'production'
 
 export default defineConfig({
     title: 'Vitepress blog',
-    base: '/',
+    base: '/blog/',
     cacheDir: './node_modules/vitepress_cache',
     description: 'vitepress,blog,blog-theme',
     ignoreDeadLinks: true,
@@ -22,11 +22,11 @@ export default defineConfig({
             categoryId: 'DIC_kwDOFshSIs4CpZga'
         },
         nav: [
-            { text: 'Home', link: '/' },
-            { text: 'Category', link: '/pages/category' },
-            { text: 'Archives', link: '/pages/archives' },
-            { text: 'Tags', link: '/pages/tags' },
-            { text: 'About', link: '/pages/about' }
+            { text: 'Home', link: '/blog/' },
+            { text: 'Category', link: '/pages/blog/category' },
+            { text: 'Archives', link: '/pages/blog/archives' },
+            { text: 'Tags', link: '/pages/blog/tags' },
+            { text: 'About', link: '/pages/blog/about' }
             // { text: 'Airene', link: 'http://airene.net' }  -- External link test
         ],
         search: {
@@ -34,7 +34,8 @@ export default defineConfig({
         },
         //outline:[2,3],
         outline: {
-            label: '文章摘要'
+            label: '文章摘要',
+            lavel: 'deep'
         },
         socialLinks: [{ icon: 'github', link: 'https://github.com/airene/vitepress-blog-pure' }]
     } as any,
