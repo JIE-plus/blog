@@ -13,10 +13,13 @@
     --date-color: var(--vp-c-text-2);
     --date-font-family: Georgia, sans-serif;
     --bt-theme-title: #000;
+    --vp-sidebar-bg-color: #fff;
+    --vp-layout-max-width: 90vw;
 }
 .dark {
     --vp-c-brand: #3b82f6;
-    --bt-theme-title: #fff
+    --bt-theme-title: #fff;
+    --vp-sidebar-bg-color: #1b1b1f;
 }
 
 
@@ -80,15 +83,19 @@ h3 {
     max-width: 60rem !important;
 }
 .VPContent .container {
-    max-width: 60rem !important;
-    display: block !important;
-    position: relative;
+    max-width: 80rem !important; /* 中间 */
 }
-/* content maxWidth*/
 .VPDoc.has-aside .content-container {
-    max-width: 60rem !important;
+    max-width: 65rem !important;
+    margin: 0 !important;
 }
-
+.aside-container {
+    right: 3vw !important;
+    width: 15vw !important; /* 右栏 */
+}
+.VPNav {
+    background-color: var(--vp-sidebar-bg-color);
+}
 
 @media (min-width: 768px) {
     .VPDoc {
