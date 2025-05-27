@@ -1,6 +1,13 @@
-# Build and Release Folders
 node_modules
-.vitepress/dist
-.vitepress/cache
 .DS_Store
-.vscode
+dist
+dist-ssr
+*.local
+.idea
+smartmontools.md
+zsh_history.md
+/*.md
+!/changelog.md
+/package-lock.json
+origin_theme.css
+.vitepress/cache

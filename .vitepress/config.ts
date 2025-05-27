@@ -1,120 +1,59 @@
-import { getPosts, getPostLength } from "./theme/serverUtils";
-import { buildBlogRSS } from "./theme/rss";
-import { transformerTwoslash } from "@shikijs/vitepress-twoslash";
-import mathjax3 from "markdown-it-mathjax3";
-import AutoNav from "vite-plugin-vitepress-auto-nav";
+import { defineConfig } from 'vitepress'
+import { getPosts } from './theme/serverUtils'
 
-async function config() {
-  return {
-    base: "/blog/",
-    lang: "en-US",
-    title: "J",
-    description: "Home of J",
-    head: [
-      [
-        "link",
-        {
-          rel: "icon",
-          type: "image/svg",
-          href: "/blog/horse.svg",
-        },
-      ],
-      [
-        "meta",
-        {
-          name: "author",
-          content: "J",
-        },
-      ],
-      [
-        "meta",
-        {
-          property: "og:title",
-          content: "Home",
-        },
-      ],
-      [
-        "meta",
-        {
-          property: "og:description",
-          content: "Home of J",
-        },
-      ],
-    ],
-    // cleanUrls: "with-subfolders",
-    lastUpdated: false,
+//每页的文章数量
+const pageSize = 10
+
+const isProd = process.env.NODE_ENV === 'production'
+
+export default defineConfig({
+    title: 'Vitepress blog',
+    base: '/',
+    cacheDir: './node_modules/vitepress_cache',
+    description: 'vitepress,blog,blog-theme',
+    ignoreDeadLinks: true,
     themeConfig: {
-      // repo: "clark-cui/homeSite",
-      logo: "/horse.svg",
-      avator: "/blog/avator.png",
-      search: {
-        provider: "local",
-      },
-      docsDir: "/",
-      
-      // docsBranch: "master",
-      posts: await getPosts(),
-      pageSize: 5,
-      postLength: await getPostLength(),
-      srcExclude:  [
-				"**/trash/**/*.md", // 排除所有 trash 目录
-				"**/draft/**/*.md", // 递归排除子目录
-				"**/private-notes/*.md", // 排除特定文件
-				"README.md"
-			],
-		
-      nav: [
-        {
-          text: "🏡首页",
-          link: "/",
+        posts: await getPosts(pageSize),
+        website: 'https://github.com/airene/vitepress-blog-pure', //copyright link
+        // 评论的仓库地址 https://giscus.app/ 请按照这个官方初始化后覆盖
+        comment: {
+            repo: 'airene/vitepress-blog-pure',
+            repoId: 'MDEwOlJlcG9zaXRvcnkzODIyMjY5Nzg',
+            categoryId: 'DIC_kwDOFshSIs4CpZga'
         },
-        {
-          text: "🔖标签",
-          link: "/tags",
+        nav: [
+            { text: 'Home', link: '/' },
+            { text: 'Category', link: '/pages/category' },
+            { text: 'Archives', link: '/pages/archives' },
+            { text: 'Tags', link: '/pages/tags' },
+            { text: 'About', link: '/pages/about' }
+            // { text: 'Airene', link: 'http://airene.net' }  -- External link test
+        ],
+        search: {
+            provider: 'local'
         },
-        {
-          text: "📃归档",
-          link: "/archives",
-        }
-        // {
-        //   text: "🔥RSS",
-        //   link: "https://clark-cui.top/feed.xml",
-        // },
-      ],
-      socialLinks: [
-        // { icon: "github", link: "https://github.com/clark-cui" },
-        // { icon: "twitter", link: "https://twitter.com/qingshuihe1" },
-        // {
-        //   icon: {
-        //     svg: `<svg role="img" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20">
-        //     <path d="M874.666667 375.189333V746.666667a64 64 0 0 1-64 64H213.333333a64 64 0 0 1-64-64V375.189333l266.090667 225.6a149.333333 149.333333 0 0 0 193.152 0L874.666667 375.189333zM810.666667 213.333333a64.789333 64.789333 0 0 1 22.826666 4.181334 63.616 63.616 0 0 1 26.794667 19.413333 64.32 64.32 0 0 1 9.344 15.466667c2.773333 6.570667 4.48 13.696 4.906667 21.184L874.666667 277.333333v21.333334L553.536 572.586667a64 64 0 0 1-79.893333 2.538666l-3.178667-2.56L149.333333 298.666667v-21.333334a63.786667 63.786667 0 0 1 35.136-57.130666A63.872 63.872 0 0 1 213.333333 213.333333h597.333334z" ></path>
-        //     </svg>`,
-        //   },
-        //   link: "mailto:rongchuancui@gmail.com",
-        // },
-      ],
-      outline: 'deep', //设置右侧aside显示层级
-      aside: false,
-      // blogs page show firewokrs animation
-      showFireworksAnimation: false,
-    },
-    buildEnd: buildBlogRSS,
-    markdown: {
-      theme: {
-        light: "vitesse-light",
-        dark: "vitesse-dark",
-      },
-      codeTransformers: [transformerTwoslash()],
-      config: (md) => {
-        md.use(mathjax3);
-      },
-    },
+        //outline:[2,3],
+        outline: {
+            label: '文章摘要'
+        },
+        socialLinks: [{ icon: 'github', link: 'https://github.com/airene/vitepress-blog-pure' }]
+    } as any,
+
+    srcExclude: isProd
+        ? [
+              '**/trash/**/*.md', // 排除所有 trash 目录
+              '**/draft/**/*.md', // 递归排除子目录
+              '**/private-notes/*.md', // 排除特定文件
+              'README.md'
+          ]
+        : ['README.md'],
     vite: {
-    //   ssr: {
-    //     noExternal: ["vitepress-plugin-twoslash"],
-    //   },
-      plugins: [AutoNav() as any]
-    },
-  };
-}
-export default config();
+        //build: { minify: false }
+        server: { port: 5000 }
+    }
+    /*
+      optimizeDeps: {
+          keepNames: true
+      }
+      */
+})
