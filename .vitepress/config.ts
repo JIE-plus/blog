@@ -93,7 +93,7 @@ async function config() {
         //   link: "mailto:rongchuancui@gmail.com",
         // },
       ],
-      // outline: 2, //设置右侧aside显示层级
+      outline: 'deep', //设置右侧aside显示层级
       aside: false,
       // blogs page show firewokrs animation
       showFireworksAnimation: false,
