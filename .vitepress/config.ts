@@ -53,11 +53,11 @@ export default defineConfig({
     vite: {
         //build: { minify: false }
         server: { port: 5000 },
-         plugins: [
-      AutoNav({
-        // Custom configurations
-      })
-    ]
+    //      plugins: [
+    //   AutoNav({
+    //     // Custom configurations
+    //   })
+    // ]
     }
     /*
       optimizeDeps: {
