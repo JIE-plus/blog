@@ -83,7 +83,9 @@ h3 {
     max-width: 60rem !important;
 }
 .VPContent .container {
-    max-width: 80rem !important; /* 中间 */
+    max-width: 70rem !important; /* 中间 */
+    margin: 0 !important;
+    justify-content:left !important;
 }
 .VPDoc.has-aside .content-container {
     max-width: 65rem !important;
