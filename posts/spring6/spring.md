@@ -1545,3 +1545,44 @@ org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying
 
 - 根据类型来获取bean时，在满足bean唯一性的前提下，其实只是看：『对象 **instanceof** 指定的类型』的返回结果，只要返回的是true就可以认定为和类型匹配，能够获取到。
 - java中，instanceof运算符用于判断前面的对象是否是后面的类，或其子类、实现类的实例。如果是返回true，否则返回false。也就是说：用instanceof关键字做判断时， instanceof 操作符的左右操作必须有继承或实现关系
+
+```java
+package com.joker.spring6.iocxml.dimap;
+import java.util.List;
+import java.util.Map;
+public class Student {
+    private Map<String, Teacher> teacherMap;
+    private String sid;
+    private String sname;
+    private List<Leason> leasonList;
+    public List<Leason> getLeasonList() {
+        return leasonList;
+    }
+    public void setLeasonList(List<Leason> leasonList) {
+        this.leasonList = leasonList;
+    }
+    public Map<String, Teacher> getTeacherMap() {
+        return teacherMap;
+    }
+    public void setTeacherMap(Map<String, Teacher> teacherMap) {
+        this.teacherMap = teacherMap;
+    }
+    public void run() {
+        System.out.println("学生编号：" + sid + "学生姓名：" + sname);
+        System.out.println(teacherMap);
+        System.out.println(leasonList);
+    }
+    public String getSid() {
+        return sid;
+    }
+    public void setSid(String sid) {
+        this.sid = sid;
+    }
+    public String getSname() {
+        return sname;
+    }
+    public void setSname(String sname) {
+        this.sname = sname;
+    }
+}
+```
