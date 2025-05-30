@@ -2513,7 +2513,7 @@ public void testList() {
 }
 ```
 
-```verilog
+```log
 2025-05-26 11:37:04 532 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@29526c05
 2025-05-26 11:37:04 641 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 5 bean definitions from class path resource [bean-list.xml]
 2025-05-26 11:37:04 659 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'empone'
@@ -2979,7 +2979,7 @@ public void testDiRefP() {
    }
    ```
 
-   ```verilog
+   ```log
    2025-05-29 17:44:19 353 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@19835e64
    2025-05-29 17:44:19 469 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 2 bean definitions from class path resource [bean-data-source.xml]
    2025-05-29 17:44:19 492 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0'
