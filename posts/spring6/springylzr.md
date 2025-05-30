@@ -11,7 +11,7 @@ tags:
 - **指Spring创建对象的过程中，将对象依赖属性通过配置进行注入**
 - **类有属性，创建对象过程中，向属性设置值**
 
-### 依赖注入常见的实现方式包括两种：
+### 依赖注入常见的实现方式包括两种
 
 - 第一种：set注入
 - 第二种：构造注入
@@ -145,8 +145,6 @@ public void testBook1() {
 Book的无参构造run...
 book1 = Book{bname='java', author='joker'}
 ```
-
-**注意：set方法使用了无参构造参数进行实例时被调用**
 
 ### 基于XML管理bean使用构造方法依赖注入方式
 
@@ -553,10 +551,10 @@ zardemp work....20
 部门名称：技术部门
 ```
 
-- 如果错把ref属性写成了value属性，会抛出异常： Caused by: java.lang.IllegalStateException: Cannot convert value of type 'java.lang.String' to required type 'com.atguigu.spring6.bean.Clazz' for property 'clazz': no matching editors or conversion strategy found 
+- 如果错把ref属性写成了value属性，会抛出异常： Caused by: java.lang.IllegalStateException: Cannot convert value of type 'java.lang.String' to required type 'com.atguigu.spring6.bean.Clazz' for property 'clazz': no matching editors or conversion strategy found
 - 意思是不能把String类型转换成我们要的Clazz类型，说明我们使用value属性时，Spring只把这个属性看做一个普通的字符串，不会认为这是一个bean的id，更不会根据它去找到bean来赋值
 
-#### 方式二：引用内部bean 
+#### 方式二：引用内部bean
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1411,7 +1409,7 @@ public void testDiRefP() {
    ```
 
    - 注意**：在使用 <context:property-placeholder> 元素加载外包配置文件功能前，首先需要在 XML 配置的一级标签 <beans> 中添加 context 相关的约束。**
-   -  xsi:schemaLocation的顺序先http://www.springframework.org/schema/context再http://www.springframework.org/schema/context/spring-context.xsd
+   - xsi:schemaLocation的顺序先<http://www.springframework.org/schema/context再http://www.springframework.org/schema/context/spring-context.xsd>
 
    ```java
    package com.joker.spring6.iocxml.jdbc;
@@ -1450,19 +1448,3 @@ public void testDiRefP() {
    2025-05-29 17:44:19 529 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'druidDataSource'
    jdbc:mysql://localhost:3306/spring?serverTimezone=UTC
    ```
-
-   
-
-   
-
-   
-
-   
-
-   
-
-   
-
-
-
-
