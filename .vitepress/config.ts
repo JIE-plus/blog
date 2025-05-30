@@ -1,5 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { getPosts } from './theme/serverUtils'
+import AutoNav from 'vite-plugin-vitepress-auto-nav';
+
 
 //每页的文章数量
 const pageSize = 10
@@ -7,14 +9,14 @@ const pageSize = 10
 const isProd = process.env.NODE_ENV === 'production'
 
 export default defineConfig({
-    title: 'Vitepress blog',
-    base: '/',
+    title: 'jie-plus blog',
+    base: '/blog/',
     cacheDir: './node_modules/vitepress_cache',
     description: 'vitepress,blog,blog-theme',
     ignoreDeadLinks: true,
     themeConfig: {
         posts: await getPosts(pageSize),
-        website: 'https://github.com/airene/vitepress-blog-pure', //copyright link
+        // website: 'https://github.com/airene/vitepress-blog-pure', //copyright link
         // 评论的仓库地址 https://giscus.app/ 请按照这个官方初始化后覆盖
         comment: {
             repo: 'airene/vitepress-blog-pure',
@@ -22,11 +24,11 @@ export default defineConfig({
             categoryId: 'DIC_kwDOFshSIs4CpZga'
         },
         nav: [
-            { text: 'Home', link: '/' },
-            { text: 'Category', link: '/pages/category' },
-            { text: 'Archives', link: '/pages/archives' },
-            { text: 'Tags', link: '/pages/tags' },
-            { text: 'About', link: '/pages/about' }
+            { text: '首页', link: '/' },
+            { text: '分类', link: '/pages/category' },
+            { text: '归档', link: '/pages/archives' },
+            { text: '标签', link: '/pages/tags' },
+            { text: '关于', link: '/pages/about' }
             // { text: 'Airene', link: 'http://airene.net' }  -- External link test
         ],
         search: {
@@ -34,7 +36,8 @@ export default defineConfig({
         },
         //outline:[2,3],
         outline: {
-            label: '文章摘要'
+            label: '文章摘要',
+            level: 'deep'
         },
         socialLinks: [{ icon: 'github', link: 'https://github.com/airene/vitepress-blog-pure' }]
     } as any,
@@ -49,7 +52,12 @@ export default defineConfig({
         : ['README.md'],
     vite: {
         //build: { minify: false }
-        server: { port: 5000 }
+        server: { port: 5000 },
+         plugins: [
+      AutoNav({
+        // Custom configurations
+      })
+    ]
     }
     /*
       optimizeDeps: {
