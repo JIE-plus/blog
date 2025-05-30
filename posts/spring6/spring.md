@@ -101,7 +101,7 @@ public void testUserObject() {
 }
 ```
 
-```verilog
+```log
 0、调用无参构造方法！
 1、com.joker.spring6.User@5c48c0c0
 2、add().....
@@ -140,7 +140,7 @@ public void testGetBean() {
 }
 ```
 
-```verilog
+```log
 2025-05-22 10:36:44 802 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@68fa0ba8
 2025-05-22 10:36:44 880 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 1 bean definitions from class path resource [bean.xml]
 2025-05-22 10:36:44 900 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'user'
@@ -173,7 +173,7 @@ public void testGetBean() {
 }
 ```
 
-```verilog
+```log
 2025-05-22 11:01:43 047 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5dcb4f5f
 2025-05-22 11:01:43 156 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 2 bean definitions from class path resource [bean.xml]
 2025-05-22 11:01:43 177 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'user'
@@ -218,7 +218,7 @@ public void testUserDao() {
 }
 ```
 
-```verilog
+```log
 2025-05-22 11:15:48 252 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@68fa0ba8
 2025-05-22 11:15:48 359 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 1 bean definitions from class path resource [bean.xml]
 2025-05-22 11:15:48 384 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'userDaoImpl'
@@ -270,7 +270,7 @@ public void testUserDao() {
 }
 ```
 
-```verilog
+```log
 2025-05-22 11:20:54 637 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@289710d9
 2025-05-22 11:20:54 748 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 2 bean definitions from class path resource [bean.xml]
 2025-05-22 11:20:54 777 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'userDaoImpl'
@@ -593,7 +593,7 @@ public void testBook1and2() {
 }
 ```
 
-```verilog
+```log
 2025-05-23 10:50:04 963 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@45312be2
 2025-05-23 10:50:05 062 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 2 bean definitions from class path resource [bean-di.xml]
 2025-05-23 10:50:05 080 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'book1'
@@ -645,7 +645,7 @@ public void testBook1and2() {
 }
 ```
 
-```verilog
+```log
 2025-05-23 15:09:02 480 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3cdf2c61
 2025-05-23 15:09:02 598 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 2 bean definitions from class path resource [bean-di.xml]
 2025-05-23 15:09:02 628 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'book1'
@@ -694,7 +694,7 @@ book2 = Book{bname='c++', author='小杰', othors='<>'}
 </beans>
 ```
 
-```verilog
+```log
 2025-05-23 15:19:05 168 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@673be18f
 2025-05-23 15:19:05 318 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 2 bean definitions from class path resource [bean-di.xml]
 2025-05-23 15:19:05 349 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'book1'
@@ -818,7 +818,7 @@ public void testRefObject1() {
 }
 ```
 
-```verilog
+```log
 2025-05-26 09:57:54 193 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@32c726ee
 2025-05-26 09:57:54 302 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [bean-ditest.xml]
 2025-05-26 09:57:54 320 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dept1'
@@ -887,7 +887,7 @@ public void testRefObject2() {
 }
 ```
 
-```verilog
+```log
 2025-05-26 10:29:48 302 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@32c726ee
 2025-05-26 10:29:48 425 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [bean-ditest.xml]
 2025-05-26 10:29:48 444 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'emp3'
@@ -945,7 +945,7 @@ public void testRefObject1() {
 }
 ```
 
-```verilog
+```log
 2025-05-26 10:41:34 589 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7a1a14a4
 2025-05-26 10:41:34 688 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [bean-ditest.xml]
 2025-05-26 10:41:34 723 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dept1'
@@ -1014,7 +1014,7 @@ public void testRefObject2() {
 }
 ```
 
-```verilog
+```log
 2025-05-26 10:46:30 857 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@35432107
 2025-05-26 10:46:30 967 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [bean-ditest.xml]
 2025-05-26 10:46:30 995 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'emp3'
@@ -1142,7 +1142,7 @@ public void testArray() {
 }
 ```
 
-```verilog
+```log
 2025-05-26 11:11:32 418 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@76f4b65
 2025-05-26 11:11:32 510 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [bean-array.xml]
 2025-05-26 11:11:32 539 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dept'
@@ -1251,7 +1251,7 @@ public void testList() {
 }
 ```
 
-```verilog
+```log
 2025-05-26 11:37:04 532 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@29526c05
 2025-05-26 11:37:04 641 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 5 bean definitions from class path resource [bean-list.xml]
 2025-05-26 11:37:04 659 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'empone'
@@ -1363,7 +1363,7 @@ public void testUserObject() {
 }
 ```
 
-```verilog
+```log
 0、调用无参构造方法！
 1、com.joker.spring6.User@5c48c0c0
 2、add().....
@@ -1402,7 +1402,7 @@ public void testGetBean() {
 }
 ```
 
-```verilog
+```log
 2025-05-22 10:36:44 802 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@68fa0ba8
 2025-05-22 10:36:44 880 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 1 bean definitions from class path resource [bean.xml]
 2025-05-22 10:36:44 900 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'user'
@@ -1435,7 +1435,7 @@ public void testGetBean() {
 }
 ```
 
-```verilog
+```log
 2025-05-22 11:01:43 047 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5dcb4f5f
 2025-05-22 11:01:43 156 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 2 bean definitions from class path resource [bean.xml]
 2025-05-22 11:01:43 177 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'user'
@@ -1480,7 +1480,7 @@ public void testUserDao() {
 }
 ```
 
-```verilog
+```log
 2025-05-22 11:15:48 252 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@68fa0ba8
 2025-05-22 11:15:48 359 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 1 bean definitions from class path resource [bean.xml]
 2025-05-22 11:15:48 384 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'userDaoImpl'
@@ -1532,7 +1532,7 @@ public void testUserDao() {
 }
 ```
 
-```verilog
+```log
 2025-05-22 11:20:54 637 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@289710d9
 2025-05-22 11:20:54 748 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 2 bean definitions from class path resource [bean.xml]
 2025-05-22 11:20:54 777 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'userDaoImpl'
@@ -1855,7 +1855,7 @@ public void testBook1and2() {
 }
 ```
 
-```verilog
+```log
 2025-05-23 10:50:04 963 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@45312be2
 2025-05-23 10:50:05 062 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 2 bean definitions from class path resource [bean-di.xml]
 2025-05-23 10:50:05 080 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'book1'
@@ -1907,7 +1907,7 @@ public void testBook1and2() {
 }
 ```
 
-```verilog
+```log
 2025-05-23 15:09:02 480 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3cdf2c61
 2025-05-23 15:09:02 598 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 2 bean definitions from class path resource [bean-di.xml]
 2025-05-23 15:09:02 628 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'book1'
@@ -1956,7 +1956,7 @@ book2 = Book{bname='c++', author='小杰', othors='<>'}
 </beans>
 ```
 
-```verilog
+```log
 2025-05-23 15:19:05 168 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@673be18f
 2025-05-23 15:19:05 318 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 2 bean definitions from class path resource [bean-di.xml]
 2025-05-23 15:19:05 349 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'book1'
@@ -2080,7 +2080,7 @@ public void testRefObject1() {
 }
 ```
 
-```verilog
+```log
 2025-05-26 09:57:54 193 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@32c726ee
 2025-05-26 09:57:54 302 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [bean-ditest.xml]
 2025-05-26 09:57:54 320 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dept1'
@@ -2149,7 +2149,7 @@ public void testRefObject2() {
 }
 ```
 
-```verilog
+```log
 2025-05-26 10:29:48 302 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@32c726ee
 2025-05-26 10:29:48 425 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [bean-ditest.xml]
 2025-05-26 10:29:48 444 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'emp3'
@@ -2207,7 +2207,7 @@ public void testRefObject1() {
 }
 ```
 
-```verilog
+```log
 2025-05-26 10:41:34 589 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7a1a14a4
 2025-05-26 10:41:34 688 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [bean-ditest.xml]
 2025-05-26 10:41:34 723 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dept1'
@@ -2276,7 +2276,7 @@ public void testRefObject2() {
 }
 ```
 
-```verilog
+```log
 2025-05-26 10:46:30 857 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@35432107
 2025-05-26 10:46:30 967 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [bean-ditest.xml]
 2025-05-26 10:46:30 995 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'emp3'
@@ -2404,7 +2404,7 @@ public void testArray() {
 }
 ```
 
-```verilog
+```log
 2025-05-26 11:11:32 418 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@76f4b65
 2025-05-26 11:11:32 510 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [bean-array.xml]
 2025-05-26 11:11:32 539 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dept'
@@ -2464,45 +2464,6 @@ zardemp work....11
 ```
 
 ```java
-// 部门类
-public class Dept {
-    private String dname;
-    private List<Emp> empList;
-    public Dept() {
-    }
-    public Dept(String dname, List<Emp> empList) {
-        this.dname = dname;
-        this.empList = empList;
-    }
-    public String getDname() {
-        return dname;
-    }
-    public void setDname(String dname) {
-        this.dname = dname;
-    }
-    public List<Emp> getEmpList() {
-        return empList;
-    }
-    public void setEmpList(List<Emp> empList) {
-        this.empList = empList;
-    }
-    @Override
-    public String toString() {
-        return "Dept{" +
-                "dname='" + dname + '\'' +
-                ", empList=" + empList +
-                '}';
-    }
-    public void info() {
-        System.out.println("部门名称：" + dname);
-        for (Emp emp : empList) {
-            System.out.println(emp.getEname());
-        }
-    }
-}
-```
-
-```java
 @Test
 public void testList() {
     ApplicationContext context = new ClassPathXmlApplicationContext("bean-list.xml");
@@ -2513,7 +2474,7 @@ public void testList() {
 }
 ```
 
-```verilog
+```log
 2025-05-26 11:37:04 532 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@29526c05
 2025-05-26 11:37:04 641 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 5 bean definitions from class path resource [bean-list.xml]
 2025-05-26 11:37:04 659 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'empone'
@@ -2654,7 +2615,7 @@ public void testMap() {
 }
 ```
 
-```verilog
+```log
 2025-05-29 11:44:16 531 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@b2c5e07
 2025-05-29 11:44:16 641 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [bean-map.xml]
 2025-05-29 11:44:16 675 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'teacherOne'
@@ -2814,7 +2775,7 @@ public void testDiRef() {
 }
 ```
 
-```verilog
+```log
 2025-05-29 14:49:27 987 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@4fad9bb2
 2025-05-29 14:49:28 094 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 7 bean definitions from class path resource [bean-diref.xml]
 2025-05-29 14:49:28 121 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'leasonList'
@@ -2898,7 +2859,7 @@ public void testDiRefP() {
 }
 ```
 
-```verilog
+```log
 2025-05-29 16:00:08 186 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7862f56
 2025-05-29 16:00:08 292 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 8 bean definitions from class path resource [bean-diref.xml]
 2025-05-29 16:00:08 314 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentp'
@@ -2979,7 +2940,7 @@ public void testDiRefP() {
    }
    ```
 
-   ```verilog
+   ```log
    2025-05-29 17:44:19 353 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@19835e64
    2025-05-29 17:44:19 469 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 2 bean definitions from class path resource [bean-data-source.xml]
    2025-05-29 17:44:19 492 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0'
