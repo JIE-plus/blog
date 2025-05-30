@@ -44,20 +44,20 @@ export default defineConfig({
 
     srcExclude: isProd
         ? [
-              '**/trash/**/*.md', // 排除所有 trash 目录
-              '**/draft/**/*.md', // 递归排除子目录
-              '**/private-notes/*.md', // 排除特定文件
-              'README.md'
-          ]
+            '**/trash/**/*.md', // 排除所有 trash 目录
+            '**/draft/**/*.md', // 递归排除子目录
+            '**/private-notes/*.md', // 排除特定文件
+            'README.md'
+        ]
         : ['README.md'],
     vite: {
         //build: { minify: false }
         server: { port: 5000 },
-         plugins: [
-      AutoNav({
-        // Custom configurations
-      })
-    ]
+        plugins: [
+            AutoNav({
+                // Custom configurations
+            })
+        ]
     }
     /*
       optimizeDeps: {
