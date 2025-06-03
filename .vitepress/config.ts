@@ -54,9 +54,9 @@ export default defineConfig({
         //build: { minify: false }
         server: { port: 5000 },
         plugins: [
-            AutoNav({
-                // Custom configurations
-            })
+            // AutoNav({
+            //     // Custom configurations
+            // })
         ]
     }
     /*
