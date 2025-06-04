@@ -2652,7 +2652,6 @@ public void testMap() {
     Student student = (Student) context.getBean("studentOne");
     student.run();
 }
-
 ```
 
 ```verilog
@@ -2663,7 +2662,6 @@ public void testMap() {
 2025-05-29 11:44:16 708 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentOne'
 学生编号：1001学生姓名：xiix
 {t0001=Teacher{teacherId='0001', teacherName='JOKER老师'}, t0002=Teacher{teacherId='0002', teacherName='ZARD老师'}, t0003=Teacher{teacherId='0003', teacherName='HAHA老师'}}
-
 ```
 
 #### 引用集合类型的bean
@@ -2718,7 +2716,6 @@ public void testMap() {
         <property name="teacherMap" ref="teacherMap"/>
     </bean>
 </beans>
-
 ```
 
 ```java
@@ -2806,7 +2803,6 @@ public class Leason {
                 '}';
     }
 }
-
 ```
 
 ```java
@@ -2816,7 +2812,6 @@ public void testDiRef() {
     Student student = (Student) context.getBean("student");
     student.run();
 }
-
 ```
 
 ```verilog
@@ -2832,7 +2827,6 @@ public void testDiRef() {
 学生编号：s00001学生姓名：Joker学生
 {00001=Teacher{teacherId='00001', teacherName='Joker老师'}, 00002=Teacher{teacherId='00002', teacherName='Zard老师'}}
 [Leason{leasonName='Java开发'}, Leason{leasonName='Python开发'}]
-
 ```
 
 ### 引入p命名空间后，可以通过以下方式为bean的各个属性赋值
@@ -2956,7 +2950,7 @@ public void testDiRefP() {
    </beans>
    ```
 
-   - 注意**：在使用 <context:property-placeholder> 元素加载外包配置文件功能前，首先需要在 XML 配置的一级标签 beans 中添加 context 相关的约束。**
+   - 注意：在使用 <context:property-placeholder> 元素加载外包配置文件功能前，首先需要在 XML 配置的一级标签 beans 中添加 context 相关的约束。
    - xsi:schemaLocation的顺序先http://www.springframework.org/schema/context再http://www.springframework.org/schema/context/spring-context.xsd
 
    ```java
@@ -2997,9 +2991,379 @@ public void testDiRefP() {
    jdbc:mysql://localhost:3306/spring?serverTimezone=UTC
    ```
 
-   
+   ### bean的作用域
 
+   **①概念**
+
+   在Spring中可以通过配置bean标签的scope属性来指定bean的作用域范围，各取值含义参加下表：
+
+   | 取值              | 含义                                    | 创建对象的时机  |
+   | ----------------- | --------------------------------------- | --------------- |
+   | singleton（默认） | 在IOC容器中，这个bean的对象始终为单实例 | IOC容器初始化时 |
+   | prototype         | 这个bean在IOC容器中有多个实例           | 获取bean时      |
+
+   如果是在WebApplicationContext环境下还会有另外几个作用域（但不常用）：
+
+   | 取值    | 含义                 |
+   | ------- | -------------------- |
+   | request | 在一个请求范围内有效 |
+   | session | 在一个会话范围内有效 |
+
+   #### singletion 单例模式
+
+   ```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <beans xmlns="http://www.springframework.org/schema/beans"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
    
+       <!-- scope属性：取值singleton（默认值），bean在IOC容器中只有一个实例，IOC容器初始化时创建对象 -->
+       <!-- scope属性：取值prototype，bean在IOC容器中可以有多个实例，getBean()时创建对象 -->
+       <bean id="order" class="com.joker.spring6.iocxml.scope.Order" scope="singleton"/>
+   </beans>
+   ```
+
+   ```java
+   public class Order {
+   }
+   ```
+
+   ```java
+   @Test
+   public void testScope() {
+       ApplicationContext context = new ClassPathXmlApplicationContext("bean-scope.xml");
+       Order order = context.getBean("order", Order.class);
+       System.out.println("order = " + order);
+       Order order1 = context.getBean("order", Order.class);
+       System.out.println("order1 = " + order1);
+   }
+   ```
+
+   ```verilog
+   2025-06-04 09:33:01 135 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3b96c42e
+   2025-06-04 09:33:01 229 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 1 bean definitions from class path resource [bean-scope.xml]
+   2025-06-04 09:33:01 252 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'order'
+   order = com.joker.spring6.iocxml.scope.Order@9ed238c
+   order1 = com.joker.spring6.iocxml.scope.Order@9ed238c
+   ```
+
+   #### prototype 多实例模式
+
+   ```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <beans xmlns="http://www.springframework.org/schema/beans"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+       <!-- scope属性：取值singleton（默认值），bean在IOC容器中只有一个实例，IOC容器初始化时创建对象 -->
+       <!-- scope属性：取值prototype，bean在IOC容器中可以有多个实例，getBean()时创建对象 -->
+       <bean id="order" class="com.joker.spring6.iocxml.scope.Order" scope="prototype"/>
+   </beans>
+   ```
+
+   ```java
+   @Test
+   public void testScope() {
+       ApplicationContext context = new ClassPathXmlApplicationContext("bean-scope.xml");
+       Order order = context.getBean("order", Order.class);
+       System.out.println("order = " + order);
+       Order order1 = context.getBean("order", Order.class);
+       System.out.println("order1 = " + order1);
+   }
+   ```
+
+   ```verilog
+   2025-06-04 09:35:41 482 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@77102b91
+   2025-06-04 09:35:41 574 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 1 bean definitions from class path resource [bean-scope.xml]
+   order = com.joker.spring6.iocxml.scope.Order@1c55f277
+   order1 = com.joker.spring6.iocxml.scope.Order@5ddabb18
+   ```
+
+   ### bean生命周期
+
+   1. bean对象创建（调用无参数构造）
+   2. 给bean对象设置相关属性
+   3. bean后置处理器（初始化之前）
+   4. bean对象初始化（调用指定初始化方法）
+   5. bean后置处理器（初始化之后）
+   6. bean对象创建完成了。可以使用了
+   7. bean对象销毁（配置指定销毁方法）
+   8. IOC容器关闭了
+
+   #### 1、bean对象创建（调用无参数构造）
+
+   ```java
+   public class User {
+       private String name;
+       // 1、bean对象创建。调用无参数构造
+       public User() {
+           System.out.println("1、bean对象创建。调用无参数构造");
+       }
+   }
+   ```
+
+   ```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <beans xmlns="http://www.springframework.org/schema/beans"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+       <bean id="user" class="com.joker.spring6.iocxml.life.User">
+   
+       </bean>
+   </beans>
+   ```
+
+   ```java
+   @Test
+   public void testLife() {
+       ApplicationContext context = new ClassPathXmlApplicationContext("bean-life.xml");
+       User user = context.getBean("user", User.class);
+   }
+   ```
+
+   ```verilog
+   2025-06-04 11:19:45 709 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@29526c05
+   2025-06-04 11:19:45 798 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 1 bean definitions from class path resource [bean-life.xml]
+   2025-06-04 11:19:45 817 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'user'
+   1、bean对象创建。调用无参数构造
+   ```
+
+   #### 2、给bean对象设置相关属性
+
+   ```java
+   public class User {
+       private String name;
+       // 1、bean对象创建。调用无参数构造
+       public User() {
+           System.out.println("1、bean对象创建。调用无参数构造");
+       }
+       public String getName() {
+           return name;
+       }
+       // 2、给bean对象设置属性值
+       public void setName(String name) {
+           System.out.println("2、给bean对象设置属性值");
+           this.name = name;
+       }
+   }
+   ```
+
+   ```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <beans xmlns="http://www.springframework.org/schema/beans"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+       <bean id="user" class="com.joker.spring6.iocxml.life.User">
+           <property name="name" value="joker"/>
+       </bean>
+   </beans>
+   ```
+
+   ```java
+   @Test
+   public void testLife() {
+       ApplicationContext context = new ClassPathXmlApplicationContext("bean-life.xml");
+       User user = context.getBean("user", User.class);
+   }
+   ```
+
+   ```verilog
+   2025-06-04 11:20:33 235 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2ef14fe
+   2025-06-04 11:20:33 324 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 1 bean definitions from class path resource [bean-life.xml]
+   2025-06-04 11:20:33 343 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'user'
+   1、bean对象创建。调用无参数构造
+   2、给bean对象设置属性值
+   ```
+
+   #### 4、bean对象初始化（调用指定初始化方法）
+
+   ```java
+   public class User {
+       private String name;
+       // 1、bean对象创建。调用无参数构造
+       public User() {
+           System.out.println("1、bean对象创建。调用无参数构造");
+       }
+       public String getName() {
+           return name;
+       }
+       // 2、给bean对象设置属性值
+       public void setName(String name) {
+           System.out.println("2、给bean对象设置属性值");
+           this.name = name;
+       }
+       // 4、bean对象初始化，调用指定的初始化的方法
+       public void initMethod() {
+           System.out.println("4、bean对象初始化，调用指定的初始化的方法");
+       }
+   }
+   ```
+
+   ```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <beans xmlns="http://www.springframework.org/schema/beans"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+       <bean id="user" class="com.joker.spring6.iocxml.life.User" init-method="initMethod">
+           <property name="name" value="joker"/>
+       </bean>
+   </beans>
+   ```
+
+   ```java
+   @Test
+   public void testLife() {
+       ApplicationContext context = new ClassPathXmlApplicationContext("bean-life.xml");
+       User user = context.getBean("user", User.class);
+       System.out.println("6 bean对象创建完成了，可以使用了");
+   }
+   ```
+
+   ```verilog
+   2025-06-04 11:26:14 795 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@6ce86ce1
+   2025-06-04 11:26:14 896 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 1 bean definitions from class path resource [bean-life.xml]
+   2025-06-04 11:26:14 921 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'user'
+   1、bean对象创建。调用无参数构造
+   2、给bean对象设置属性值
+   4、bean对象初始化，调用指定的初始化的方法
+   6 bean对象创建完成了，可以使用了
+   ```
+
+   #### 7、bean对象销毁（配置指定销毁方法）
+
+   ```java
+   public class User {
+       private String name;
+       // 1、bean对象创建。调用无参数构造
+       public User() {
+           System.out.println("1、bean对象创建。调用无参数构造");
+       }
+       public String getName() {
+           return name;
+       }
+       // 2、给bean对象设置属性值
+       public void setName(String name) {
+           System.out.println("2、给bean对象设置属性值");
+           this.name = name;
+       }
+       // 4、bean对象初始化，调用指定的初始化的方法
+       public void initMethod() {
+           System.out.println("4、bean对象初始化，调用指定的初始化的方法");
+       }
+       // 7、bean对象销毁，调用指定的销毁的方法
+       public void destroyMethod() {
+           System.out.println("7、bean对象销毁，调用指定的销毁的方法");
+       }
+   }
+   ```
+
+   ```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <beans xmlns="http://www.springframework.org/schema/beans"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+       <bean id="user" class="com.joker.spring6.iocxml.life.User" init-method="initMethod" destroy-method="destroyMethod">
+           <property name="name" value="joker"/>
+       </bean>
+   </beans>
+   ```
+
+   ```java
+   @Test
+   public void testLife() {
+       // ClassPathXmlApplicationContext才有close()销毁方法
+       ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("bean-life.xml");
+       User user = context.getBean("user", User.class);
+       System.out.println("6 bean对象创建完成了，可以使用了");
+       context.close();
+   }
+   ```
+
+   ```verilog
+   2025-06-04 11:30:04 283 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@545b995e
+   2025-06-04 11:30:04 372 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 1 bean definitions from class path resource [bean-life.xml]
+   2025-06-04 11:30:04 389 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'user'
+   1、bean对象创建。调用无参数构造
+   2、给bean对象设置属性值
+   4、bean对象初始化，调用指定的初始化的方法
+   6 bean对象创建完成了，可以使用了
+   2025-06-04 11:30:04 425 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Closing org.springframework.context.support.ClassPathXmlApplicationContext@545b995e, started on Wed Jun 04 11:30:04 CST 2025
+   7、bean对象销毁，调用指定的销毁的方法
+   ```
+
+   #### 3和5 、bean后置处理器
+
+   ```java
+   package com.joker.spring6.iocxml.life;
+   import org.springframework.beans.BeansException;
+   import org.springframework.beans.factory.config.BeanPostProcessor;
+   public class MyBeanPostProcessor implements BeanPostProcessor {
+       @Override
+       public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+           System.out.println("3、bean的后置处理器（初始化之前）");
+           System.out.println("beanName = " + bean);
+           return bean;
+       }
+       @Override
+       public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+           System.out.println("5、bean的后置处理器（初始化之后）");
+           System.out.println("beanName = " + bean);
+           return bean;
+       }
+   }
+   ```
+
+   ```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <beans xmlns="http://www.springframework.org/schema/beans"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+       <bean id="user" class="com.joker.spring6.iocxml.life.User" init-method="initMethod" destroy-method="destroyMethod">
+           <property name="name" value="joker"/>
+       </bean>
+   
+       <!-- bean的后置处理器要放入IOC容器才能生效 -->
+       <bean id="myBeanProcessor" class="com.joker.spring6.iocxml.life.MyBeanPostProcessor"/>
+   </beans>
+   ```
+
+   ```java
+    @Test
+   public void testLife() {
+       // ClassPathXmlApplicationContext才有close()销毁方法
+       ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("bean-life.xml");
+       User user = context.getBean("user", User.class);
+       System.out.println("6 bean对象创建完成了，可以使用了");
+       context.close();
+   }
+   ```
+
+   ```verilog
+   2025-06-04 11:47:32 539 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@39de3d36
+   2025-06-04 11:47:32 648 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 2 bean definitions from class path resource [bean-life.xml]
+   2025-06-04 11:47:32 671 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'myBeanProcessor'
+   2025-06-04 11:47:32 686 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'user'
+   1、bean对象创建。调用无参数构造
+   2、给bean对象设置属性值
+   3、bean的后置处理器（初始化之前）
+   beanName = com.joker.spring6.iocxml.life.User@3ce3db41
+   4、bean对象初始化，调用指定的初始化的方法
+   5、bean的后置处理器（初始化之后）
+   beanName = com.joker.spring6.iocxml.life.User@3ce3db41
+   6 bean对象创建完成了，可以使用了
+   2025-06-04 11:47:32 714 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Closing org.springframework.context.support.ClassPathXmlApplicationContext@39de3d36, started on Wed Jun 04 11:47:32 CST 2025
+   7、bean对象销毁，调用指定的销毁的方法
+   ```
+
+   **注意：**
+
+   - **这里的配置的处理器MyBeanPostProcessor只是在这个配置文件bean-life.xml配置的bean中生效**
+   - **使用constructor-arg来配置bean那么调用有参数构造方法来实现第一二步骤**
 
    
 
