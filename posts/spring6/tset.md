@@ -38,9 +38,6 @@ Note that if blocks and lists appear at the same level, the lists will be ignore
 
 ### Blocks
 
-```js
-console.log('hello, JavaScript')
-```
 
 | Products | Price |
 |-|-|
