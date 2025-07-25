@@ -6,6 +6,9 @@ tags:
   - markmap
 ---
 
+## markmap
+
+```mindmap
 ## Links
 
 - [Website](https://markmap.js.org/)
@@ -45,3 +48,4 @@ console.log('hello, JavaScript')
 | Banana | 2 |
 
 ![](https://markmap.js.org/favicon.png)
+```
