@@ -61,6 +61,7 @@ export default defineConfig({
       })
     ]
   },
+
   markdown: {
     config: (md) => {
       const temp = md.renderer.rules.fence.bind(md.renderer.rules);
@@ -95,3 +96,4 @@ function escapeHtml(unsafe) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
